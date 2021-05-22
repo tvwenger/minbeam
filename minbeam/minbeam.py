@@ -183,7 +183,7 @@ def minbeam(beams):
     return major, minor, pa
 
 
-def plot(beams):
+def plot(beams, zero_pa="+x"):
     """
     Return a figure showing the minimum area ellipse and all other
     ellipses.
@@ -193,18 +193,25 @@ def plot(beams):
             For each beam, a list of (major, minor, pa)
             where major and minor are the major and minor axes,
             and pa is the rotation angle in radians.
+        zero_pa :: string
+            The axis along which zero position angle is defined.
+            Accepted values are "+x", "+y", "-x", and "-y".
 
     Returns: fig
         fig :: matplotlib.Figure
             Figure containing the plot
     """
+    pa_offset = {"+x": 0.0, "+y": 0.5 * np.pi, "-x": np.pi, "-y": 1.5 * np.pi}
+    if zero_pa not in pa_offset:
+        raise ValueError("zero_pa must be one of {0}".format(list(pa_offset.keys())))
+
     fig, ax = plt.subplots()
     for beam in beams:
         patch = Ellipse(
             (0.0, 0.0),
             beam[0],
             beam[1],
-            angle=np.rad2deg(beam[2]),
+            angle=np.rad2deg(beam[2] + pa_offset[zero_pa]),
             fill=False,
             edgecolor="black",
             linewidth=1.0,
@@ -216,7 +223,7 @@ def plot(beams):
         (0.0, 0.0),
         major,
         minor,
-        angle=np.rad2deg(pa),
+        angle=np.rad2deg(pa + pa_offset[zero_pa]),
         fill=False,
         edgecolor="red",
         linewidth=2.0,
