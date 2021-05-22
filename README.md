@@ -1,6 +1,6 @@
 # minbeam
-Given a set of ellipses (beams), `minbeam` will return the smallest-area
-ellipse that encloses them all.
+Given a set of ellipses (beams), `minbeam` will return the smallest
+area ellipse that encloses them all.
 
 ## Installation
 Install via `pip`:
@@ -36,7 +36,7 @@ fig = minbeam.plot(beams)
 fig.tight_layout()
 fig.savefig("beam.png")
 ```
-<img src="https://raw.githubusercontent.com/tvwenger/minbeam/master/beam.png" width="45%" />
+<img src="https://raw.githubusercontent.com/tvwenger/minbeam/master/beam.png" width="60%" />
 
 ## Issues and Contributing
 
