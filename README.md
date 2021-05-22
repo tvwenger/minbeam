@@ -28,8 +28,7 @@ beams = [
     [10.0, 5.0, np.pi/2.0], # major, minor, pa of beam 1
     [8.0, 7.0, np.pi/4.0], # major, minor, pa of beam 2
 ]
-# major axis, minor axis, and position angle (radians) of enclosing
-# ellipse
+# major axis, minor axis, and position angle (radians) of enclosing ellipse
 major, minor, pa = minbeam.minbeam(beams)
 ```
 
@@ -69,7 +68,7 @@ beams = np.array([major, minor, pa]).T
 enc_major, enc_minor, enc_pa = minbeam.minbeam(beams)
 
 # plot beams with position angle defined as zero along +y axis.
-fig = minbeam.plot(beams, zero_pa='+y')
+fig = minbeam.plot(beams, zero_pa="+y")
 fig.tight_layout()
 fig.savefig("beam.png")
 ```
