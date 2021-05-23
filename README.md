@@ -1,6 +1,6 @@
 # minbeam
 Given a set of ellipses (beams), `minbeam` will return the smallest
-area ellipse that encloses them all.
+area ellipse that encloses them all. See also: https://radio-beam.readthedocs.io
 
 ## Installation
 Install via `pip`:
